@@ -47,7 +47,7 @@ iptables -t nat -A  POSTROUTING -o wlan0 -j MASQUERADE
 ```
 * Reboot the Pi
 
-### Rest setup
+### Rest api setup
 * Creating a virtual enviroment named `rest` using python
 ```bash
 python3 -m venv rest
@@ -64,7 +64,7 @@ rest\Scripts\activate
 #Installing
 pip install -r requirements.txt
 #Exporting fixed version
-pip freeze > requirements.txt.
+pip freeze > requirements.txt
 ```
 * Exporting flash app and running it
 ```bash
