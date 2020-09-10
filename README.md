@@ -1,7 +1,7 @@
 ## PiREST
+I have created an extention to my network using RaspberryPi 4 and also wanted to check the status of pi so I have made this python api. It is more like a cheat sheet for me for some later uses or when i forgot something.
 
 ### Sharing Wifi Through LAN
-I have created an extention to my network using RaspberryPi 4
 How i made my WiFi signal recived by Pi to be shared by LAN:
 * Install dnsmasq
 ```bash
@@ -46,3 +46,29 @@ sudo nano /etc/rc.local
 iptables -t nat -A  POSTROUTING -o wlan0 -j MASQUERADE
 ```
 * Reboot the Pi
+
+### Rest setup
+* Creating a virtual enviroment named `rest` using python
+```bash
+python3 -m venv rest
+```
+* Activating virtual enviroment 
+```bash
+#Pi version
+source rest/bin/activate
+#Windows testing version
+rest\Scripts\activate
+```
+* Installing needed dependency using pip
+```bash
+#Installing
+pip install -r requirements.txt
+#Exporting fixed version
+pip freeze > requirements.txt.
+```
+* Exporting flash app and running it
+```bash
+#On Windows use set instead of export
+export FLASK_APP=main.py
+flask run --host=0.0.0.0
+```
