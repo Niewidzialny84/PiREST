@@ -5,7 +5,7 @@ import os
 from flask import render_template, jsonify, make_response, abort, request
 
 tempcmd = "/opt/vc/bin/vcgencmd measure_temp | egrep temp"
-conncmd = "sudo  iwlist wlan0 scanning | egrep 'Cell |ESSID|Quality'"
+conncmd = "sudo iwlist wlan0 scanning | egrep 'Cell |ESSID|Quality'"
 
 @app.errorhandler(500)
 def crashed(error):
@@ -17,6 +17,6 @@ def index():
     if os.name == 'nt':
         return make_response('Wrong operating system',500)
 
-    temp = subprocess.check_output(tempcmd)
-    conn = subprocess.check_output(conncmd)
+    temp = subprocess.check_output(tempcmd, shell=True)
+    conn = subprocess.check_output(conncmd, shell=True)
     return render_template('index.html', temperature=temp.decode('utf-8'), connection=conn.decode('utf-8'))
