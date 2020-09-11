@@ -26,7 +26,7 @@ def index():
 
     conn = subprocess.check_output(conncmd, shell=True)
     conn = conn.decode('utf-8')
-    p = re.compile("Quality=(.*) Signal level=(.*")
+    p = re.compile("Quality=(.*) Signal level=(.*)")
     result = p.search(conn)
     conn = result.group(2) + '  ' + result.group(1)
     return render_template('index.html', temperature=temp, connection=conn)
