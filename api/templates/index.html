@@ -2,20 +2,72 @@
     <head>
         <title>Pi Rest</title>
         <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/iiiypuk/rpi-icon/master/256.png"/>
+        <style>
+            body {
+                background-image: linear-gradient(to bottom right, rgb(255, 113, 113), rgb(255, 255, 204));
+            }
+
+            div {
+                color: rgb(49, 49, 49);
+                margin: auto;
+                text-align: center;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.24);
+            }
+
+            #content {
+                width: 25%;
+                height: 50%;
+                margin-top: 1%;
+                background-color: rgba(0,0,0,0);
+                padding: 1%;
+            }
+
+            #title {
+                margin:auto;
+                margin-top: 2%;
+                font-size: 30px;
+                font-weight: bold;
+                width: 20%;
+                height: 4%;
+                background-color: #ffaa71;
+            }
+
+            .label {
+                color: #6e6d6d; 
+                box-shadow: none;
+                margin-top: 10%;
+                font-size: 20px;
+                font-weight: 900;
+            }
+
+            .box {
+                margin-top: 1%;
+                margin-bottom: 10%;
+                max-width: 70%;
+                min-width: 20%;
+                border: solid 1px #ececec;
+                background-color: rgba(236, 236, 236, 0.5);
+                font-size: 16px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Pi Stats are here</h1>
-        <div> 
-            <h3>
-                Temperature
-            </h3> 
-            {{temperature}}
+        <div id="title">
+            Pi Stats
         </div>
-        <div> 
-            <h3> 
-                Connections list
-            </h3>
-            {{connection}}
+        <div id="content">
+            <div class="label">
+                Temperature
+            </div>
+            <div class="box"> 
+                {{temperature}}
+            </div>
+            <div class="label">
+                Connection
+            </div>
+            <div class="box"> 
+                {{connection}}
+            </div>
         </div>
     </body>
 </html>
